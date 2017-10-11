@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue demo</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <h1>Filter</h1>
+        <div>
+            filter: <input v-model="filterString" /> <input type="button" v-on:click="filterPeople" value="Filter" />
+        </div>
+        <person-table v-bind:people="filteredPeople"></person-table>
+
+        <h1>Simple v-for</h1>
+        <ul>
+            <li v-for="person in people">
+                {{ person.name }}
+            </li>
+        </ul>
+        <h1>Simple table</h1>
+        <table>
+            <thead>
+                <th>Id</th>
+                <th>Name</th>
+            </thead>
+            <tbody>
+                <tr v-for="person in people">
+                    <td>{{ person.personId }}</td>
+                    <td>{{ person.name }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h1>Simple component</h1>
+        <person-table v-bind:people="people"></person-table>
+
+
+
+    </div>
+
+    <script type="text/x-template" id="person-table-template">
+        <table>
+            <thead>
+                <th>Id</th>
+                <th>Name</th>
+            </thead>
+            <tbody>
+                <tr v-for="person in people">
+                    <td>{{ person.personId }}</td>
+                    <td>{{ person.name }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>
+    <script src="script/axios.min.js"></script>
+    <script src="script/app.js"></script>
+
+
+</body>
+
+</html>
